@@ -7,7 +7,8 @@ const expenseReducer = (s = [], a) => {
         ...s,
         {
           id: uuid(),
-          text: "こんにちは"
+          text: a.text,
+          number: a.num
         }
       ];
     case "REMOVE_EXPENSE":
