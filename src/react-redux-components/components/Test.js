@@ -11,9 +11,10 @@ const Test = props => (
       dispatch
     </button>
     <ul>
-      {props.conectedTest.combinedexpenseReducer.map(expense => (
-        <li key={expense.id}>
+      {props.conectedTest.combinedexpenseReducer.map((expense, num) => (
+        <li key={num}>
           {expense.id}
+          <p>{expense.text}</p>
           <button
             onClick={e => {
               e.preventDefault();
@@ -21,6 +22,18 @@ const Test = props => (
             }}
           >
             Remove
+          </button>
+          <button
+            onClick={e => {
+              e.preventDefault();
+              props.dispatch({
+                type: "EDIT_EXPENSE",
+                id: expense.id,
+                text: "sample"
+              });
+            }}
+          >
+            Change text
           </button>
         </li>
       ))}
