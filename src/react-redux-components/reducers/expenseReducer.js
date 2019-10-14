@@ -9,6 +9,10 @@ const expenseReducer = (s = [], a) => {
           id: uuid()
         }
       ];
+    case "REMOVE_EXPENSE":
+      return s.filter(s => {
+        return s.id !== a.id;
+      });
     default:
       return s;
   }
