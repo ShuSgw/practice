@@ -5,7 +5,7 @@ import Header from "./Header";
 import Options from "./Options";
 import OptionModel from "./OptionModel";
 
-class App extends React.Component {
+class TodoApp extends React.Component {
   constructor(props) {
     super();
     this.state = {
@@ -61,4 +61,4 @@ class App extends React.Component {
   }
 }
 
-export default App;
+export default TodoApp;

@@ -4,19 +4,10 @@ import ReactDOM from "react-dom";
 import "normalize.css";
 import "./css/index.scss";
 
-import AppRouter from "./router-components/AppRouter";
+// import AppRouter from "./router-components/AppRouter";
+// import TodoApp from "./Todo-components/TodoApp";
+// import App from "./App";
+import ReactReduxApp from "./react-redux-components/React-ReduxApp";
 
-import {createStore} from "redux";
-
-ReactDOM.render(<AppRouter />, document.getElementById("root"));
-
-const store = createStore((s = {sample: 0}, a) => {
-  console.log("running");
-  if (a.type === "SAMPLE") {
-    return {sample: s.sample + 1};
-  } else {
-    return s;
-  }
-});
-
+ReactDOM.render(<ReactReduxApp />, document.getElementById("root"));
 serviceWorker.unregister();
