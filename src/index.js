@@ -7,18 +7,9 @@ import "./css/index.scss";
 // import AppRouter from "./router-components/AppRouter";
 // import TodoApp from "./Todo-components/TodoApp";
 // import App from "./App";
-import ReactReduxApp from "./react-redux-components/React-ReduxApp";
 
-ReactDOM.render(<ReactReduxApp />, document.getElementById("root"));
+import ReactReduxAppSec from "./react-redux-componentsSec/React-ReduxAppSec";
 
-// const sample = {
-//   hello: "hello",
-//   sample: "sample",
-//   text: "world"
-// };
-// const test = {
-//   text: "test"
-// };
-// console.log({...sample, text: "test"});
+ReactDOM.render(<ReactReduxAppSec />, document.getElementById("root"));
 
 serviceWorker.unregister();
