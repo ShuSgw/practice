@@ -8,7 +8,7 @@ const filterReducer = (
   a
 ) => {
   switch (a.type) {
-    case "FIND_NAME":
+    case "FILTER_TEXT_HELLO":
       return {...s, text: a.filter};
     default:
       return s;
@@ -17,21 +17,39 @@ const filterReducer = (
 
 export default filterReducer;
 
-// SET_TEXT_FILTER
-// store.dispatch((text = '') => ({
-//   type: 'SET_TEXT_FILTER',
+// store.dispatch(('water')={
+//   type: 'FIND_NAME',
 //   text: text
-// }));
-
-// const getVisibleExpenses = (expenses, { text, sortBy, startDate, endDate }) => {
-//   return expenses.filter((expense) => {
-//     const textMatch = expense.description.toLowerCase().includes(text.toLowerCase());
-
-//     return startDateMatch && endDateMatch && textMatch;
-//   });
-// };
-// store.subscribe(() => {
-//   const state = store.getState();
-//   const visibleExpenses = getVisibleExpenses(state.expenses, state.filters);
-//   console.log(visibleExpenses);
 // });
+
+// const filtersReducerDefaultState = {
+// text: "water",
+// sortby: "date",
+// startDate: undefined,
+// endDate: undefined
+// };
+
+// export default (state = filtersReducerDefaultState, action) => {
+//   switch (action.type) {
+//     case 'FIND_NAME':
+//       return {
+//         ...state,
+//         text: action.text
+//       };
+//   }
+// };
+
+// selectExpenses (expenses, textFilter) => {
+//   return expenses.filter((expense) => {
+//     const textMatch = expense.text.includes(text);
+//     return textMatch;
+//   })
+// };
+
+// const mapStateToProps = (state) => {
+//   return {
+//     expenses: selectExpenses(state.expenses, state.filters)
+//   };
+// };
+
+// export default connect(mapStateToProps)(ExpenseList);

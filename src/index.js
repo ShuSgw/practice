@@ -10,4 +10,15 @@ import "./css/index.scss";
 import ReactReduxApp from "./react-redux-components/React-ReduxApp";
 
 ReactDOM.render(<ReactReduxApp />, document.getElementById("root"));
+
+// const sample = {
+//   hello: "hello",
+//   sample: "sample",
+//   text: "world"
+// };
+// const test = {
+//   text: "test"
+// };
+// console.log({...sample, text: "test"});
+
 serviceWorker.unregister();

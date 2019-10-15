@@ -1,6 +1,14 @@
 import React from "react";
 import {connect} from "react-redux";
 
+const selector = (expenses, text) => {
+  return expenses.filter(expense => {
+    console.log(text);
+    const textMatch = expense.text.includes(text.text);
+    return textMatch;
+  });
+};
+
 const Test = props => (
   <div>
     <button
@@ -24,21 +32,16 @@ const Test = props => (
     >
       Post3
     </button>
-    <form
-      onSubmit={e => {
-        e.preventDefault();
-        const textValue = e.target[0].value;
-        props.dispatch({type: "FIND_NAME", filter: textValue});
-        return props.conectedTest.combinedexpenseReducer.filter(expense => {
-          return console.log(expense.text === textValue);
-        });
+
+    <button
+      onClick={() => {
+        props.dispatch({type: "FILTER_TEXT_HELLO", filter: "hello"});
       }}
     >
-      <input type="text" />
-      <button>Name Filter</button>
-    </form>
+      Text 'hello'
+    </button>
     <ul>
-      {props.conectedTest.combinedexpenseReducer.map((expense, num) => (
+      {props.conectedTest.map((expense, num) => (
         <li key={num}>
           <p>{expense.text}</p>
           <p>{expense.id}</p>
@@ -69,6 +72,12 @@ const Test = props => (
   </div>
 );
 const ConnectedTest = connect(s => {
-  return {conectedTest: s};
+  console.log("新規");
+  console.log(s.combinedexpenseReducer);
+  // console.log(s.combinedfilterReducer.text);
+  console.log(selector(s.combinedexpenseReducer, s.combinedfilterReducer));
+  return {
+    conectedTest: selector(s.combinedexpenseReducer, s.combinedfilterReducer)
+  };
 })(Test);
 export default ConnectedTest;
