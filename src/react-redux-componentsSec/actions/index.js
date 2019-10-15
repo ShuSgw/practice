@@ -1,6 +1,6 @@
 export const stateOneChange = () => {
   return {type: "STATE_ONE_CHANGE"};
 };
-export const stateTWoChange = () => {
-  return {type: "STATE_TWO_CHANGE", text: "hello"};
+export const filterTextChange = filterText => {
+  return {type: "FILTER_TEXT_CHANGE", filterText: filterText};
 };

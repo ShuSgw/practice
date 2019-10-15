@@ -1,7 +1,7 @@
-const reducerSec = (s = "stateTow", a) => {
+const reducerSec = (s = {filter: ""}, a) => {
   switch (a.type) {
-    case "STATE_TWO_CHANGE":
-      return a.text;
+    case "FILTER_TEXT_CHANGE":
+      return {...s, filter: a.filterText};
     default:
       return s;
   }

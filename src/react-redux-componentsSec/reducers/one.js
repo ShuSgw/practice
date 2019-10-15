@@ -7,10 +7,14 @@ const reducerOne = (s = [], a) => {
         ...s,
         {
           id: uuid(),
-          name: "名前" + threadNum++,
+          name: "sample" + threadNum++,
           text: "サンプルテキスト"
         }
       ];
+    case "REMOVE_EXPENSE":
+      return s.filter(s => {
+        return s.id !== a.id;
+      });
     default:
       return s;
   }

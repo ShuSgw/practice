@@ -2,6 +2,8 @@ import React from "react";
 import {connect} from "react-redux";
 // actions
 import {stateOneChange} from "../actions/index";
+// react-router
+import {Link} from "react-router-dom";
 
 const Contents = props => (
   <div>
@@ -13,18 +15,35 @@ const Contents = props => (
     >
       Post
     </button>
-    {props.allState.one.map((one, num) => (
+    {props.allState.map((one, num) => (
       <ul key={num}>
-        <li>Name: {one.name}</li>
+        <li>
+          <Link to={`/edit/${one.id}`}>Name: {one.name}</Link>
+        </li>
         <li>Text: {one.text}</li>
         <li>id: {one.id}</li>
+        <li>
+          <button
+            onClick={() => {
+              props.dispatch({type: "REMOVE_EXPENSE", id: one.id});
+            }}
+          >
+            Remove
+          </button>
+        </li>
       </ul>
     ))}
   </div>
 );
 
 const LnkContents = connect(s => {
-  return {allState: s};
+  const selector = () => {
+    return s.one.filter(one => {
+      const textMatch = one.name.includes(s.two.filter);
+      return textMatch;
+    });
+  };
+  return {allState: selector()};
 })(Contents);
 
 export default LnkContents;
