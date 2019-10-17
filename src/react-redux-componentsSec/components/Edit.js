@@ -1,15 +1,43 @@
 import React from "react";
 import {connect} from "react-redux";
-// actions
-// import {stateOneChange} from "../actions/index";
 
-const Edit = props => (
-  <div>
-    <h1>Edit</h1>
-    <p>{props.allState.name}</p>
-    <p>{props.match.params.id}</p>
-  </div>
-);
+class Edit extends React.Component {
+  constructor(props) {
+    console.log(props);
+    super();
+    this.state = {
+      name: props.allState ? props.allState.name : "",
+      text: props.allState ? props.allState.text : ""
+    };
+  }
+  onNameChange = e => {
+    this.setState(() => {
+      return {name: e.target.value};
+    });
+  };
+  onTextChange = e => {
+    this.setState(() => {
+      return {text: e.target.value};
+    });
+  };
+  render() {
+    return (
+      <div>
+        <h1>Edit</h1>
+        <input
+          type="text"
+          onChange={this.onNameChange}
+          defaultValue={this.state.name}
+        />
+        <input
+          type="text"
+          onChange={this.onTextChange}
+          defaultValue={this.state.text}
+        />
+      </div>
+    );
+  }
+}
 
 const LnkEdit = connect((s, props) => {
   return {

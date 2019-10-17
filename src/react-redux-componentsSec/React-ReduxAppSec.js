@@ -3,6 +3,8 @@ import React from "react";
 import Header from "./components/Header";
 import Contents from "./components/Contents";
 import Edit from "./components/Edit";
+import Sample from "./components/Sample";
+
 // react-redux
 import {Provider} from "react-redux";
 // store
@@ -21,6 +23,7 @@ const ReactReduxApp = () => (
       <Switch>
         <Route path="/" component={Contents} exact={true} />
         <Route path="/edit/:id" component={Edit} />
+        <Route path="/sample/" component={Sample} />
       </Switch>
     </BrowserRouter>
   </Provider>
