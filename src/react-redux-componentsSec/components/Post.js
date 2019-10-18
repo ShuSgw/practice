@@ -1,13 +1,12 @@
 import React from "react";
 import {connect} from "react-redux";
-import {editPosts} from "../actions/index";
 
-class Edit extends React.Component {
+class Post extends React.Component {
   constructor(props) {
     super();
     this.state = {
-      name: props.allState ? props.allState.name : "",
-      text: props.allState ? props.allState.text : ""
+      name: "",
+      text: ""
     };
   }
   onNameChange = e => {
@@ -25,30 +24,34 @@ class Edit extends React.Component {
   render() {
     return (
       <div>
-        <h1>Edit</h1>
+        <h1>Post</h1>
         <form
           onSubmit={e => {
             e.preventDefault();
-            this.props.dispatch(
-              editPosts(
-                this.props.allState.id,
-                this.state.name,
-                this.state.text
-              )
-            );
-            this.props.history.push("/");
+            this.props.dispatch({
+              type: "ADD_POST",
+              name: this.state.name,
+              text: this.state.text
+            });
+            this.setState({name: ""});
           }}
         >
+          <label>Name:</label>
+          <br />
           <input
             type="text"
             onChange={this.onNameChange}
             defaultValue={this.state.name}
           />
+          <br />
+          <label>Text:</label>
+          <br />
           <input
             type="text"
             onChange={this.onTextChange}
             defaultValue={this.state.text}
           />
+          <br />
           <button>submit</button>
         </form>
       </div>
@@ -56,12 +59,10 @@ class Edit extends React.Component {
   }
 }
 
-const LnkEdit = connect((s, props) => {
+const LnkPost = connect((s, props) => {
   return {
-    allState: s.one.find(one => {
-      return one.id === props.match.params.id;
-    })
+    allState: s
   };
-})(Edit);
+})(Post);
 
-export default LnkEdit;
+export default LnkPost;

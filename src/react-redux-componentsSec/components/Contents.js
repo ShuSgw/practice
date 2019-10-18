@@ -4,18 +4,11 @@ import {connect} from "react-redux";
 import {stateOneChange} from "../actions/index";
 // react-router
 import {Link} from "react-router-dom";
-
+// modules
+import Post from "./Post";
 const Contents = props => (
   <div>
-    {console.log(props.allState)}
-    <p>Contents</p>
-    <button
-      onClick={() => {
-        props.dispatch(stateOneChange());
-      }}
-    >
-      Post
-    </button>
+    <Post />
     {props.allState.map((one, num) => (
       <ul key={num}>
         <li>

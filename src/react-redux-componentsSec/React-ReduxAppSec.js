@@ -14,7 +14,10 @@ import reducers from "./reducers";
 //router
 import {BrowserRouter, Route, Switch} from "react-router-dom";
 
-const store = createStore(reducers);
+const store = createStore(
+  reducers,
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+);
 
 const ReactReduxApp = () => (
   <Provider store={store}>

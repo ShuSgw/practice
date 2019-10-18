@@ -2,13 +2,13 @@ import uuid from "uuid";
 var threadNum = 1;
 const reducerOne = (s = [], a) => {
   switch (a.type) {
-    case "STATE_ONE_CHANGE":
+    case "ADD_POST":
       return [
         ...s,
         {
           id: uuid(),
-          name: "sample" + threadNum++,
-          text: "サンプルテキスト"
+          name: a.name + threadNum++,
+          text: a.text
         }
       ];
     case "EDIT_ESPENSE":
