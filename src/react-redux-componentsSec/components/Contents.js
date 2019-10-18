@@ -7,6 +7,7 @@ import {Link} from "react-router-dom";
 
 const Contents = props => (
   <div>
+    {console.log(props.allState)}
     <p>Contents</p>
     <button
       onClick={() => {

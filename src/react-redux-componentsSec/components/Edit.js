@@ -3,7 +3,6 @@ import {connect} from "react-redux";
 
 class Edit extends React.Component {
   constructor(props) {
-    console.log(props);
     super();
     this.state = {
       name: props.allState ? props.allState.name : "",
@@ -11,29 +10,45 @@ class Edit extends React.Component {
     };
   }
   onNameChange = e => {
+    const name = e.target.value;
     this.setState(() => {
-      return {name: e.target.value};
+      return {name: name};
     });
   };
   onTextChange = e => {
+    const text = e.target.value;
     this.setState(() => {
-      return {text: e.target.value};
+      return {text: text};
     });
   };
   render() {
     return (
       <div>
         <h1>Edit</h1>
-        <input
-          type="text"
-          onChange={this.onNameChange}
-          defaultValue={this.state.name}
-        />
-        <input
-          type="text"
-          onChange={this.onTextChange}
-          defaultValue={this.state.text}
-        />
+        <form
+          onSubmit={e => {
+            e.preventDefault();
+            this.props.dispatch({
+              type: "EDIT_ESPENSE",
+              id: this.props.allState.id,
+              name: this.state.name,
+              text: this.state.text
+            });
+            this.props.history.push("/");
+          }}
+        >
+          <input
+            type="text"
+            onChange={this.onNameChange}
+            defaultValue={this.state.name}
+          />
+          <input
+            type="text"
+            onChange={this.onTextChange}
+            defaultValue={this.state.text}
+          />
+          <button>submit</button>
+        </form>
       </div>
     );
   }

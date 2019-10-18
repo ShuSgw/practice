@@ -10,7 +10,6 @@ class Sample extends React.Component {
     return (
       <div>
         <h1>helo</h1>
-        {console.log(this.props)}
       </div>
     );
   }
