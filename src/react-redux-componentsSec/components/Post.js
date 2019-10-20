@@ -52,7 +52,7 @@ class Post extends React.Component {
             defaultValue={this.state.text}
           />
           <br />
-          <button>submit</button>
+          <button>post</button>
         </form>
       </div>
     );
