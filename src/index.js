@@ -3,6 +3,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "normalize.css";
 import "./css/index.scss";
+import "./firebase/firebase";
 
 // import AppRouter from "./router-components/AppRouter";
 // import TodoApp from "./Todo-components/TodoApp";
