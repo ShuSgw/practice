@@ -9,5 +9,14 @@ firebase
   .ref()
   .set({
     name: "shu",
-    age: 27
+    age: 28
   });
+
+// firebase
+//   .database()
+//   .ref("age")
+//   .set(19);
+// firebase
+//   .database()
+//   .ref("sample")
+//   .set({sample: "sample"});

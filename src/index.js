@@ -3,14 +3,16 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "normalize.css";
 import "./css/index.scss";
-import "./firebase/firebase";
+// import "./firebase/firebase";
 
 // import AppRouter from "./router-components/AppRouter";
 // import TodoApp from "./Todo-components/TodoApp";
 // import App from "./App";
 // import ReactReduxApp from "./react-redux-components/React-ReduxApp";
-import ReactReduxAppSec from "./react-redux-componentsSec/React-ReduxAppSec";
+import Sample from "./ES6/promise";
 
-ReactDOM.render(<ReactReduxAppSec />, document.getElementById("root"));
+// import ReactReduxAppSec from "./react-redux-componentsSec/React-ReduxAppSec";
+
+ReactDOM.render(<Sample />, document.getElementById("root"));
 
 serviceWorker.unregister();
