@@ -21,6 +21,7 @@
     "react-scripts": "3.2.0",
     "react-test-renderer": "^16.10.2",
     "redux": "^4.0.4",
+    "redux-thunk": "^2.3.0",
     "remote-redux-devtools": "^0.5.16",
     "uuid": "^3.3.3",
     "validator": "^11.1.0"

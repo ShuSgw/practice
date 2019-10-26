@@ -1,7 +1,7 @@
 import React from "react";
 import {connect} from "react-redux";
 // actions
-import {stateOneChange} from "../actions/index";
+// import {stateOneChange} from "../actions/index";
 // react-router
 import {Link} from "react-router-dom";
 // modules

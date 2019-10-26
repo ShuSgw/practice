@@ -8,15 +8,18 @@ import Sample from "./components/Sample";
 // react-redux
 import {Provider} from "react-redux";
 // store
-import {createStore} from "redux";
+import {createStore, applyMiddleware} from "redux";
 //reducer
 import reducers from "./reducers";
 //router
 import {BrowserRouter, Route, Switch} from "react-router-dom";
+// redux-thunk
+import thunk from "redux-thunk";
 
 const store = createStore(
   reducers,
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+  window.__REDUX_DEVTOOLS_EXTENSION__ &&
+    window.__REDUX_DEVTOOLS_EXTENSION__(applyMiddleware(thunk))
 );
 
 const ReactReduxApp = () => (

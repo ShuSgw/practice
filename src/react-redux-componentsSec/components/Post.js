@@ -1,5 +1,6 @@
 import React from "react";
 import {connect} from "react-redux";
+import {newPost, newPostwithDatabase} from "../actions";
 
 class Post extends React.Component {
   constructor(props) {
@@ -28,11 +29,7 @@ class Post extends React.Component {
         <form
           onSubmit={e => {
             e.preventDefault();
-            this.props.dispatch({
-              type: "ADD_POST",
-              name: this.state.name,
-              text: this.state.text
-            });
+            this.props.dispatch(newPost(this.state.name, this.state.text));
             this.setState({name: ""});
           }}
         >
@@ -54,6 +51,14 @@ class Post extends React.Component {
           <br />
           <button>post</button>
         </form>
+
+        <button
+          onClick={e => {
+            newPostwithDatabase();
+          }}
+        >
+          test
+        </button>
       </div>
     );
   }
