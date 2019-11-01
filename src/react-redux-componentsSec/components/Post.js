@@ -1,6 +1,6 @@
 import React from "react";
 import {connect} from "react-redux";
-import {newPost, newPostwithDatabase} from "../actions";
+import {newPost} from "../actions";
 
 class Post extends React.Component {
   constructor(props) {
@@ -51,14 +51,6 @@ class Post extends React.Component {
           <br />
           <button>post</button>
         </form>
-
-        <button
-          onClick={e => {
-            newPostwithDatabase();
-          }}
-        >
-          test
-        </button>
       </div>
     );
   }
