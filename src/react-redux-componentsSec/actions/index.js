@@ -1,3 +1,5 @@
+import {database} from "../firebase/firebase";
+
 export const filterTextChange = filterText => {
   return {type: "FILTER_TEXT_CHANGE", filterText: filterText};
 };
@@ -22,4 +24,25 @@ export const newPost = (name, text) => {
     name: name,
     text: text
   };
+};
+
+// const newPostWithDBforRedux = (name, text) => {
+//   return {
+//     type: "ADD_POST",
+//     name: name,
+//     text: text
+//   };
+// };
+
+export const newPostWithDB = (name, text) => {
+  database
+    .ref()
+    .push({
+      name: name,
+      text: text
+    })
+    .then(ref => {
+      obj = {id: ref.key};
+    });
+  return obj;
 };

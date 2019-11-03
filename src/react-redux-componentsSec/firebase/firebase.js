@@ -1,12 +1,11 @@
 import * as firebase from "firebase/app";
 import "firebase/database";
-import {kStringMaxLength} from "buffer";
 
 const config = {};
 
 firebase.initializeApp(config);
 
-const database = firebase.database();
+export const database = firebase.database();
 
 // set
 // database
@@ -88,12 +87,20 @@ const database = firebase.database();
 // });
 
 // to put data into array with original key
-database
-  .ref()
-  .once("value")
-  .then(snap => {
-    // const spansArray = [];
-    snap.forEach(singleSnap => {
-      console.log(singleSnap.key);
-    });
-  });
+// database.ref().on("value", snap => {
+//   const spansArray = [];
+//   snap.forEach(singleSnap => {
+//     // console.log(singleSnap.key);
+//     // console.log(singleSnap.val());
+//     spansArray.push({
+//       id: singleSnap.key,
+//       ...singleSnap.val()
+//     });
+//   });
+//   console.log(spansArray);
+// });
+
+// other event from .once('value')
+// on('value')... when page is loaded & data is changed
+// on(child_removed)... when data is deleted
+// on(child_changed)... when data is changed

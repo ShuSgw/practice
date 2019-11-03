@@ -1,6 +1,7 @@
 import React from "react";
 import {connect} from "react-redux";
 import {newPost} from "../actions";
+import PostwithDB from "./PostwithDB";
 
 class Post extends React.Component {
   constructor(props) {
@@ -51,11 +52,16 @@ class Post extends React.Component {
           <br />
           <button>post</button>
         </form>
+        <PostwithDB
+          onNameChange={this.onNameChange}
+          onTextChange={this.onTextChange}
+          postState={this.state}
+          dispatch={this.props.dispatch}
+        />
       </div>
     );
   }
 }
-
 const LnkPost = connect((s, props) => {
   return {
     allState: s
