@@ -1,4 +1,5 @@
 import {database} from "../firebase/firebase";
+import uuid from "uuid";
 
 export const filterTextChange = filterText => {
   return {type: "FILTER_TEXT_CHANGE", filterText: filterText};
@@ -21,46 +22,27 @@ export const addExpense = expense => ({
 export const newPost = (name, text) => {
   return {
     type: "ADD_POST",
+    id: uuid(),
     name: name,
     text: text
   };
 };
 
-// const newPostWithDBforRedux = (name, text) => {
-//   return {
-//     type: "ADD_POST",
-//     name: name,
-//     text: text
-//   };
-// };
-
 export const newPostWithDB = (name, text) => {
-  return dispatch => {
-    database.ref().push({
-      name: name,
-      text: text
-    });
-    setTimeout(() => {
-      dispatch({
-        type: "ADD_POST",
-        name: "text",
-        text: "text"
+  return d => {
+    database
+      .ref()
+      .push({
+        name: name,
+        text: text
+      })
+      .then(ref => {
+        d({
+          type: "ADD_POST",
+          id: ref.key,
+          name: name,
+          text: text
+        });
       });
-    }, 1000);
   };
-  // return dispatch => {
-  //   database
-  //     .ref()
-  //     .push({
-  //       name: name,
-  //       text: text
-  //     })
-  //     .then(ref => {
-  //       dispatch({
-  //         type: "ADD_POST",
-  //         name: "text",
-  //         text: "text"
-  //       });
-  //     });
-  // };
 };
