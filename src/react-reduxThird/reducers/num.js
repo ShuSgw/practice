@@ -4,6 +4,8 @@ const num = (s = 0, a) => {
       return s + a.amount;
     case "MIN":
       return s - a.amount;
+    case "RESET":
+      return s;
     default:
       return s;
   }

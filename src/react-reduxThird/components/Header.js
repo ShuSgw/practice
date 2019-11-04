@@ -2,21 +2,24 @@ import React from "react";
 import {connect} from "react-redux";
 
 // {num} = props.num
-const Header = (props, {num}) => (
+const Header = ({num, text}) => (
   <div>
-    {console.log(props)}
-    <h1>{num}</h1>
+    {console.log()}
+    <h1>{text}</h1>
   </div>
 );
 
+// connect()
+// 第一引数にstate。このstateの中にはdispacthも含まれるが
+// 第二引数を定義すると第一引数のdispatchは上書きされる
 const LnkHeader = connect(
-  s => {
-    return {num: s.num, text: s.text};
+  (s, props) => {
+    return {text: s.text};
   },
   d => {
     return {
-      sample: () => {
-        d({num: "texst", text: "text"});
+      plus: () => {
+        d({type: "ADD", amount: 1});
       }
     };
   }
