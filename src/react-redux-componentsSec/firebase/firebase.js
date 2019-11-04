@@ -1,7 +1,16 @@
 import * as firebase from "firebase/app";
 import "firebase/database";
 
-const config = {};
+const config = {
+  apiKey: "AIzaSyAwP0VkYCOQxRG9B13ny44OI1KFrNDq6DU",
+  authDomain: "practice01-375cb.firebaseapp.com",
+  databaseURL: "https://practice01-375cb.firebaseio.com",
+  projectId: "practice01-375cb",
+  storageBucket: "practice01-375cb.appspot.com",
+  messagingSenderId: "274606329724",
+  appId: "1:274606329724:web:7896610b176c2f29bedef9",
+  measurementId: "G-S27CGRY6Z0"
+};
 
 firebase.initializeApp(config);
 

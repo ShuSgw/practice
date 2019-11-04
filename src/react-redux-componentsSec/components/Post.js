@@ -62,7 +62,7 @@ class Post extends React.Component {
     );
   }
 }
-const LnkPost = connect((s, props) => {
+const LnkPost = connect(s => {
   return {
     allState: s
   };

@@ -35,14 +35,32 @@ export const newPost = (name, text) => {
 // };
 
 export const newPostWithDB = (name, text) => {
-  database
-    .ref()
-    .push({
+  return dispatch => {
+    database.ref().push({
       name: name,
       text: text
-    })
-    .then(ref => {
-      obj = {id: ref.key};
     });
-  return obj;
+    setTimeout(() => {
+      dispatch({
+        type: "ADD_POST",
+        name: "text",
+        text: "text"
+      });
+    }, 1000);
+  };
+  // return dispatch => {
+  //   database
+  //     .ref()
+  //     .push({
+  //       name: name,
+  //       text: text
+  //     })
+  //     .then(ref => {
+  //       dispatch({
+  //         type: "ADD_POST",
+  //         name: "text",
+  //         text: "text"
+  //       });
+  //     });
+  // };
 };

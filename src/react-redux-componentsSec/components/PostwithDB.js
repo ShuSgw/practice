@@ -4,14 +4,11 @@ import {newPostWithDB} from "../actions/index";
 const PostwithDB = props => (
   <div>
     <h1>Post with DB</h1>
+    {console.log(props.dispatch)}
     <form
       onSubmit={e => {
         e.preventDefault();
-        // newPostWithDB(props.postState.name, props.postState.text);
-        console.log(newPostWithDB(props.postState.name, props.postState.text));
-        // props.dispatch(
-        //   newPostWithDB(props.postState.name, props.postState.text)
-        // );
+        newPostWithDB(props.postState.name, props.postState.text);
       }}
     >
       <label>Name:</label>
