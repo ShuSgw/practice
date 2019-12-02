@@ -1,8 +1,8 @@
-import {database} from "../firebase/firebase";
+import { database } from "../firebase/firebase";
 import uuid from "uuid";
 
 export const filterTextChange = filterText => {
-  return {type: "FILTER_TEXT_CHANGE", filterText: filterText};
+  return { type: "FILTER_TEXT_CHANGE", filterText: filterText };
 };
 
 export const editPosts = (id, name, text) => {

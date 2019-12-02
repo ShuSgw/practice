@@ -1,6 +1,6 @@
 import React from "react";
-import {connect} from "react-redux";
-import {newPost} from "../actions";
+import { connect } from "react-redux";
+import { newPost } from "../actions";
 import PostwithDB from "./PostwithDB";
 
 class Post extends React.Component {
@@ -14,13 +14,13 @@ class Post extends React.Component {
   onNameChange = e => {
     const name = e.target.value;
     this.setState(() => {
-      return {name: name};
+      return { name: name };
     });
   };
   onTextChange = e => {
     const text = e.target.value;
     this.setState(() => {
-      return {text: text};
+      return { text: text };
     });
   };
   render() {
@@ -31,7 +31,7 @@ class Post extends React.Component {
           onSubmit={e => {
             e.preventDefault();
             this.props.dispatch(newPost(this.state.name, this.state.text));
-            this.setState({name: ""});
+            this.setState({ name: "" });
           }}
         >
           <label>Name:</label>

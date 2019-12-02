@@ -1,5 +1,5 @@
 import React from "react";
-import {newPostWithDB} from "../actions/index";
+import { newPostWithDB } from "../actions/index";
 
 const PostwithDB = props => (
   <div>
