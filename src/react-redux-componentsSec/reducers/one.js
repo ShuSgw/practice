@@ -1,4 +1,3 @@
-import uuid from "uuid";
 var threadNum = 1;
 const reducerOne = (s = [], a) => {
   switch (a.type) {
@@ -6,7 +5,7 @@ const reducerOne = (s = [], a) => {
       return [
         ...s,
         {
-          id: uuid(),
+          id: a.id,
           name: a.name + threadNum++,
           text: a.text
         }
@@ -14,7 +13,7 @@ const reducerOne = (s = [], a) => {
     case "EDIT_ESPENSE":
       return s.map(post => {
         if (post.id === a.id) {
-          return {...post, name: a.name, text: a.text};
+          return { ...post, name: a.name, text: a.text };
         } else {
           return post;
         }
@@ -26,6 +25,8 @@ const reducerOne = (s = [], a) => {
       });
     default:
       return s;
+    case "SET_EXPENSES":
+      return a.postData;
   }
 };
 

@@ -6,15 +6,21 @@ import Edit from "./components/Edit";
 import Sample from "./components/Sample";
 
 // react-redux
-import {Provider} from "react-redux";
+import { Provider } from "react-redux";
 // store
-import {createStore, applyMiddleware} from "redux";
+import { createStore, applyMiddleware } from "redux";
 //reducer
 import reducers from "./reducers";
 //router
-import {BrowserRouter, Route, Switch} from "react-router-dom";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 // redux-thunk
 import thunk from "redux-thunk";
+
+// firebase
+import "./firebase/firebase";
+
+// action
+import { setPostFromDB } from "./actions/index";
 
 const store = createStore(
   reducers,
@@ -22,6 +28,9 @@ const store = createStore(
   // window.__REDUX_DEVTOOLS_EXTENSION__ &&
   //   window.__REDUX_DEVTOOLS_EXTENSION__(applyMiddleware(thunk))
 );
+
+// to show database
+store.dispatch(setPostFromDB());
 
 const ReactReduxApp = () => (
   <Provider store={store}>
@@ -35,5 +44,7 @@ const ReactReduxApp = () => (
     </BrowserRouter>
   </Provider>
 );
+
+// store.subscribe(() => console.log(store.getState()));
 
 export default ReactReduxApp;

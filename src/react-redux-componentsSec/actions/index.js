@@ -28,6 +28,7 @@ export const newPost = (name, text) => {
   };
 };
 
+// from here, actions for DB connection
 export const newPostWithDB = (name, text) => {
   return d => {
     database
@@ -43,6 +44,31 @@ export const newPostWithDB = (name, text) => {
           name: name,
           text: text
         });
+      });
+  };
+};
+
+export const setExpenses = postData => ({
+  type: "SET_EXPENSES",
+  postData
+  //  [Object, Object, Object, Object, Object]
+  //
+});
+
+export const setPostFromDB = () => {
+  return d => {
+    return database
+      .ref()
+      .once("value")
+      .then(snaps => {
+        const test = [];
+        snaps.forEach(snap => {
+          test.push({
+            id: snap.key,
+            ...snap.val()
+          });
+        });
+        d(setExpenses(test));
       });
   };
 };

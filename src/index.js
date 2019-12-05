@@ -3,7 +3,8 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "normalize.css";
 import "./css/index.scss";
-import "./react-redux-componentsSec/firebase/firebase";
+// import "./react-redux-componentsSec/firebase/firebase";
+// import "./simple-react-todo/firebase/firebase";
 
 // import AppRouter from "./router-components/AppRouter";
 // import TodoApp from "./Todo-components/TodoApp";
@@ -12,6 +13,8 @@ import "./react-redux-componentsSec/firebase/firebase";
 // import Sample from "./ES6/promise";
 import ReactReduxAppSec from "./react-redux-componentsSec/React-ReduxAppSec";
 // import ReactReduxThird from "./react-reduxThird/React-ReduxAppThird";
+
+// import TodoWithDB from "./simple-react-todo/React-ReduxAppSec";
 
 ReactDOM.render(<ReactReduxAppSec />, document.getElementById("root"));
 
