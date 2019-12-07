@@ -1,9 +1,12 @@
 import React from "react";
-import {connect} from "react-redux";
+import { connect } from "react-redux";
+import { removePost } from "../actions/index";
+import { databaseRmovePost } from "../actions/index";
+
 // actions
 // import {stateOneChange} from "../actions/index";
 // react-router
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 // modules
 import Post from "./Post";
 const Contents = props => (
@@ -19,7 +22,7 @@ const Contents = props => (
         <li>
           <button
             onClick={() => {
-              props.dispatch({type: "REMOVE_EXPENSE", id: one.id});
+              props.dispatch(databaseRmovePost(one.id));
             }}
           >
             Remove
@@ -37,7 +40,7 @@ const LnkContents = connect(s => {
       return textMatch;
     });
   };
-  return {allState: selector()};
+  return { allState: selector() };
 })(Contents);
 
 export default LnkContents;

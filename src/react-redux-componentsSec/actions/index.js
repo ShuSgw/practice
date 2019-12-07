@@ -28,6 +28,24 @@ export const newPost = (name, text) => {
   };
 };
 
+export const removePost = id => {
+  return {
+    type: "REMOVE_EXPENSE",
+    id: id
+  };
+};
+
+export const databaseRmovePost = id => {
+  return d => {
+    database
+      .ref(id)
+      .remove()
+      .then(() => {
+        d(removePost(id));
+      });
+  };
+};
+
 // from here, actions for DB connection
 export const newPostWithDB = (name, text) => {
   return d => {
@@ -51,8 +69,6 @@ export const newPostWithDB = (name, text) => {
 export const setExpenses = postData => ({
   type: "SET_EXPENSES",
   postData
-  //  [Object, Object, Object, Object, Object]
-  //
 });
 
 export const setPostFromDB = () => {
