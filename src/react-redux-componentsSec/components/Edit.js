@@ -1,6 +1,7 @@
 import React from "react";
-import {connect} from "react-redux";
-import {editPosts} from "../actions/index";
+import { connect } from "react-redux";
+// import { editPosts } from "../actions/index";
+import { databaseEditPosts } from "../actions/index";
 
 class Edit extends React.Component {
   constructor(props) {
@@ -13,13 +14,13 @@ class Edit extends React.Component {
   onNameChange = e => {
     const name = e.target.value;
     this.setState(() => {
-      return {name: name};
+      return { name: name };
     });
   };
   onTextChange = e => {
     const text = e.target.value;
     this.setState(() => {
-      return {text: text};
+      return { text: text };
     });
   };
   render() {
@@ -30,7 +31,7 @@ class Edit extends React.Component {
           onSubmit={e => {
             e.preventDefault();
             this.props.dispatch(
-              editPosts(
+              databaseEditPosts(
                 this.props.allState.id,
                 this.state.name,
                 this.state.text

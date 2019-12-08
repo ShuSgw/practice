@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { removePost } from "../actions/index";
+// import { removePost } from "../actions/index";
 import { databaseRmovePost } from "../actions/index";
 
 // actions

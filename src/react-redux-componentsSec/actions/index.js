@@ -13,6 +13,19 @@ export const editPosts = (id, name, text) => {
     text: text
   };
 };
+export const databaseEditPosts = (id, name, text) => {
+  return d => {
+    database
+      .ref(id)
+      .update({
+        name: name,
+        text: text
+      })
+      .then(() => {
+        d(editPosts(id, name, text));
+      });
+  };
+};
 
 export const addExpense = expense => ({
   type: "ADD_EXPENSE",
