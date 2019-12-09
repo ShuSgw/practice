@@ -1,5 +1,5 @@
 import React from "react";
-import {connect} from "react-redux";
+import { connect } from "react-redux";
 
 class Sample extends React.Component {
   constructor(props) {
@@ -9,7 +9,7 @@ class Sample extends React.Component {
   render() {
     return (
       <div>
-        <h1>helo</h1>
+        <h1>Hello</h1>
       </div>
     );
   }

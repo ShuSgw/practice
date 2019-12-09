@@ -54,14 +54,18 @@ export default ReactReduxApp;
 let hasRendered = false;
 const renderApp = () => {
   if (!hasRendered) {
+    store.dispatch(setPostFromDB());
     hasRendered = true;
   }
 };
 
 firebase.auth().onAuthStateChanged(user => {
   if (user) {
-    console.log("log in");
-    store.dispatch(setPostFromDB());
+    console.log(user.uid);
+    if (history.location.pathname === "/") {
+      history.push("/dashboard");
+      renderApp();
+    }
   } else {
     history.push("/");
   }

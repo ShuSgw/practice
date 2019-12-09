@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { filterTextChange } from "../actions/index";
 import { NavLink } from "react-router-dom";
 import { startLogout } from "../actions/auth";
+import { Link } from "react-router-dom";
 
 const Header = props => (
   <div>
@@ -18,6 +19,9 @@ const Header = props => (
         props.dispatch(filterTextChange(e.target.value));
       }}
     />
+    <br />
+    <br />
+    <Link to={`/sample/`}>To LINK Sample Page</Link>
     <br />
     <br />
   </div>
