@@ -9,7 +9,7 @@ import Sample from "./components/Sample";
 // react-redux
 import { Provider } from "react-redux";
 // store
-import { createStore, applyMiddleware } from "redux";
+import { createStore, applyMiddleware, compose } from "redux";
 //reducer
 import reducers from "./reducers";
 //router
@@ -22,18 +22,14 @@ import firebase from "./firebase/firebase";
 
 // action
 import { setPostFromDB } from "./actions/index";
+import { login, logout } from "./actions/auth";
 
 // history
 import { createBrowserHistory as createHistory } from "history";
 
 const history = createHistory();
-
-const store = createStore(
-  reducers,
-  applyMiddleware(thunk)
-  // window.__REDUX_DEVTOOLS_EXTENSION__ &&
-  //   window.__REDUX_DEVTOOLS_EXTENSION__(applyMiddleware(thunk))
-);
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const store = createStore(reducers, composeEnhancers(applyMiddleware(thunk)));
 
 const ReactReduxApp = () => (
   <Provider store={store}>
@@ -62,11 +58,13 @@ const renderApp = () => {
 firebase.auth().onAuthStateChanged(user => {
   if (user) {
     console.log(user.uid);
+    store.dispatch(login(user.uid));
     if (history.location.pathname === "/") {
       history.push("/dashboard");
       renderApp();
     }
   } else {
+    store.dispatch(logout());
     history.push("/");
   }
 });
