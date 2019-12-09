@@ -4,7 +4,6 @@ import { connect } from "react-redux";
 class Sample extends React.Component {
   constructor(props) {
     super();
-    console.log(props);
   }
   render() {
     return (

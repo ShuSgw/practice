@@ -5,7 +5,6 @@ import Contents from "./components/Contents";
 import LnkLoginPage from "./components/LoginPage";
 import Edit from "./components/Edit";
 import Sample from "./components/Sample";
-
 // react-redux
 import { Provider } from "react-redux";
 // store
@@ -57,7 +56,6 @@ const renderApp = () => {
 
 firebase.auth().onAuthStateChanged(user => {
   if (user) {
-    console.log(user.uid);
     store.dispatch(login(user.uid));
     if (history.location.pathname === "/") {
       history.push("/dashboard");
