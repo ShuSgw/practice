@@ -1,6 +1,7 @@
 # Practice
 
+Learn Modern JavaScript (Especially React)
+
 ## Start
 
-Learn Modern JavaScript (Especially React)
 npm run server
