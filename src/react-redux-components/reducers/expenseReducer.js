@@ -18,9 +18,9 @@ const expenseReducer = (s = [], a) => {
     case "EDIT_EXPENSE":
       return s.map(s => {
         if (s.id === a.id) {
-          return {...s, text: a.text};
+          return { ...s, text: a.text };
         } else {
-          return {...s};
+          return { ...s };
         }
       });
 

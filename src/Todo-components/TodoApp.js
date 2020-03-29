@@ -15,23 +15,23 @@ class TodoApp extends React.Component {
   }
   // normal function
   handleDelete() {
-    this.setState(() => ({options: []}));
+    this.setState(() => ({ options: [], nextId: 0 }));
   }
 
   handlePick = () => {
     const randomNum = Math.floor(Math.random() * this.state.options.length);
     const option = this.state.options[randomNum];
-    this.setState(() => ({selectedOption: option}));
+    this.setState(() => ({ selectedOption: option }));
   };
   clearSelectedOption = () => {
-    this.setState(() => ({selectedOption: undefined}));
+    this.setState(() => ({ selectedOption: undefined }));
   };
   // arrow function
   handleAddOption = e => {
     e.preventDefault();
     const option = e.target.elements.option.value.trim();
     if (option) {
-      this.setState(() => ({options: [...this.state.options, option]}));
+      this.setState(() => ({ options: [...this.state.options, option] }));
     }
     e.target.elements.option.value = "";
   };

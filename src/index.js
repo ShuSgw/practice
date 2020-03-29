@@ -11,11 +11,13 @@ import "./css/index.scss";
 // import App from "./App";
 // import ReactReduxApp from "./react-redux-components/React-ReduxApp";
 // import Sample from "./ES6/promise";
-import ReactReduxAppSec from "./react-redux-componentsSec/React-ReduxAppSec";
+// import ReactReduxAppSec from "./react-redux-componentsSec/React-ReduxAppSec";
 // import ReactReduxThird from "./react-reduxThird/React-ReduxAppThird";
 
 // import TodoWithDB from "./simple-react-todo/React-ReduxAppSec";
 
-ReactDOM.render(<ReactReduxAppSec />, document.getElementById("root"));
+import App from "./review2020_03_05";
+
+ReactDOM.render(<App />, document.getElementById("root"));
 
 serviceWorker.unregister();
