@@ -16,8 +16,16 @@ import "./css/index.scss";
 
 // import TodoWithDB from "./simple-react-todo/React-ReduxAppSec";
 
-import App from "./review2020_03_05";
+// import App from "./review2020_03_05";
 
-ReactDOM.render(<App />, document.getElementById("root"));
+// ReactDOM.render(<App />, document.getElementById("root"));
+
+var sample = {
+  title: "a",
+  test() {
+    console.log(this.title);
+  }
+};
+sample.test();
 
 serviceWorker.unregister();

@@ -1,9 +1,10 @@
 import React from "react";
 
-const Another = () => {
+const Another = props => {
   return (
     <div>
-      <h1>Review React2020-03-05</h1>
+      <h1>Another</h1>
+      <p>{props.children}</p>
     </div>
   );
 };
