@@ -3,6 +3,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "normalize.css";
 import "./css/index.scss";
+
 // import "./react-redux-componentsSec/firebase/firebase";
 // import "./simple-react-todo/firebase/firebase";
 
@@ -17,15 +18,9 @@ import "./css/index.scss";
 // import TodoWithDB from "./simple-react-todo/React-ReduxAppSec";
 
 // import App from "./review2020_03_05";
+// import App from "./review2020_03_31";
+import App from "./review2020_03_31";
 
-// ReactDOM.render(<App />, document.getElementById("root"));
-
-var sample = {
-  title: "a",
-  test() {
-    console.log(this.title);
-  }
-};
-sample.test();
+ReactDOM.render(<App />, document.getElementById("root"));
 
 serviceWorker.unregister();
