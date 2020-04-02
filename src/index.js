@@ -20,7 +20,8 @@ import "./css/index.scss";
 // import App from "./review2020_03_05";
 // import App from "./review2020_03_31";
 // import App from "./review2020_03_31";
-import App from "./review2020_04_02";
+// import App from "./review2020_04_02";
+import App from "./Todo_react_redux";
 
 // import MemoApp from "./MemoApp";
 

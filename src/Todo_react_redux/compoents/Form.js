@@ -1,15 +1,15 @@
 import React from "react";
 import { connect } from "react-redux";
 
-const Btn = ({ add }) => {
+const Form = ({ add }) => {
   return (
     <div>
       <button
         onClick={() => {
-          add(10);
+          add("text");
         }}
       >
-        aaa
+        ADD
       </button>
     </div>
   );
@@ -17,16 +17,16 @@ const Btn = ({ add }) => {
 
 const mapStateToProps = state => ({ num: state.num });
 
-const actionCreator = amount => {
+const actionCreator = text => {
   console.log("Add Dispach");
-  return { type: "ADD", amount: amount };
+  return { type: "ADD", text: text };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    add: amount => {
-      dispatch(actionCreator(amount));
+    add: text => {
+      dispatch(actionCreator(text));
     }
   };
 };
-export default connect(mapStateToProps, mapDispatchToProps)(Btn);
+export default connect(mapStateToProps, mapDispatchToProps)(Form);
