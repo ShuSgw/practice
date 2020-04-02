@@ -3,28 +3,31 @@ import React from "react";
 import Btn from "./Btn";
 import Text from "./Text";
 import { Provider } from "react-redux";
-
-const initialState = {};
+import { createStore } from "redux";
+const initialState = {
+  num: 0
+};
 
 const counter = (state = initialState, action) => {
   switch (action.type) {
     case "INC":
-      return { ...state };
+      return { num: state.num + 1 };
     case "DEC":
-      return { ...state };
+      return { num: state.num - 1 };
     default:
       return state;
   }
 };
 
+const store = createStore(counter);
 class App extends React.Component {
-  constructor(props) {
-    super(props);
-  }
+  // constructor(props) {
+  //   super(props);
+  // }
   render() {
     return (
       <div>
-        <Provider>
+        <Provider store={store}>
           <Text />
           <Btn />
         </Provider>

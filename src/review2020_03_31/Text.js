@@ -1,11 +1,16 @@
-import React, { Component } from "react";
+import React from "react";
 import { connect } from "react-redux";
 
-export const Text = props => {
-  return <div>Text</div>;
+const Text = props => {
+  return (
+    <div>
+      <h1>{props.num}</h1>
+      <div>{console.log(props)}</div>
+    </div>
+  );
 };
 
-const mapStateToProps = state => ({});
+const mapStateToProps = state => ({ num: state.num });
 
 const mapDispatchToProps = {};
 

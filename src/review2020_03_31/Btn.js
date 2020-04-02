@@ -1,18 +1,30 @@
 import React from "react";
 import { connect } from "react-redux";
 
-export const Btn = props => {
+const Btn = props => {
   return (
     <div>
-      <button>BTN</button>
+      <button
+        onClick={() => {
+          props.dispatch({ type: "INC" });
+        }}
+      >
+        PLUS
+      </button>
+      <button
+        onClick={() => {
+          props.dispatch({ type: "DEC" });
+        }}
+      >
+        MINUS
+      </button>
+      <div>{console.log(props)}</div>
     </div>
   );
 };
 
-// const mapStateToProps = state => ({});
+// const mapStateToProps = state => ({ num: state.num });
 
-// const mapDispatchToProps = {};
+// const mapDispatchToProps = dispach => ({ num: state.num });
 
-// export default connect(mapStateToProps, mapDispatchToProps)(Btn);
-
-export default Btn;
+export default connect()(Btn);
