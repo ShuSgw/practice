@@ -1,23 +1,20 @@
 import { createStore } from "redux";
 
 const initialState = {
-  num: 0
+  data: [{ ms: "sample data", date: new Date() }]
 };
 
 const redux = (state = initialState, action) => {
   switch (action.type) {
-    case "ADD":
-      return add(state);
-    case "DEC":
-      return { num: state.num - 1 };
+    // case "ADD":
+    //   return { num: state.num + 1 };
+    // case "DEC":
+    //   return { num: state.num - 1 };
     default:
       return state;
   }
 };
 
-const add = state => {
-  return { num: state.num + 1 };
-};
 export const store = createStore(redux);
 
 // import { createStore } from "redux";
