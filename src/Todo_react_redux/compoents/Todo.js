@@ -9,12 +9,12 @@ const Todo = ({ todo }) => {
   return todos;
 };
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
-    todo: state.todos
+    todo: state.todos,
   };
 };
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
   return {
     // dispatch1: () => {
     //   dispatch(actionCreator)

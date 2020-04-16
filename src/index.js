@@ -21,10 +21,11 @@ import "./css/index.scss";
 // import App from "./review2020_03_31";
 // import App from "./review2020_03_31";
 // import App from "./review2020_04_02";
-import App from "./Todo_react_redux";
+// import App from "./Todo_react_redux";
+import Index from "./graphQL";
 
 // import MemoApp from "./MemoApp";
 
-ReactDOM.render(<App />, document.getElementById("root"));
+ReactDOM.render(<Index />, document.getElementById("root"));
 
 serviceWorker.unregister();
