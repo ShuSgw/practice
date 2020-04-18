@@ -23,10 +23,11 @@ import "./css/index.scss";
 // import App from "./review2020_04_02";
 // import App from "./Todo_react_redux";
 // import Index from "./graphQL";
-import Index from "./hooks";
+// import Index from "./hooks";
+import Index from "./wp-api";
 
 // import MemoApp from "./MemoApp";
 
-ReactDOM.render(<Index count={2} />, document.getElementById("root"));
+ReactDOM.render(<Index />, document.getElementById("root"));
 
 serviceWorker.unregister();
