@@ -5,25 +5,25 @@ class Lists extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      posts: [
-        {
-          id: "aaaa",
-        },
-      ],
+      users: [],
     };
   }
   componentDidMount() {
-    axios.get("http://testsite.lo//wp-json/wp/v2/posts").then((res) => {
-      console.log(res);
-      this.setState({
-        posts: [{}],
+    axios
+      .get("https://www.fran-shushoku.com/wp-json/wp/v2/posts/?per_page=100")
+      .then((res) => {
+        console.log(res);
+        const data = res.data.map((data) => data);
+        this.setState({ users: data });
+        console.log(this.state);
       });
-    });
   }
 
   render() {
-    const posts = this.state.posts.map((a, b) => <li key={b}>{a.id}</li>);
-    return <ul>{posts}</ul>;
+    const lists = this.state.users.map((list, key) => (
+      <li key={key}>{list.title.rendered}</li>
+    ));
+    return <ul>{lists}</ul>;
   }
 }
 
