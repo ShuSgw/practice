@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import Image from "./image";
+import { Link } from "react-router-dom";
 
 class Lists extends Component {
   constructor(props) {
@@ -32,6 +33,7 @@ class Lists extends Component {
           <h4>{list.title.rendered}</h4>
           <Image iamgeId={list.featured_media} />
           <div dangerouslySetInnerHTML={{ __html: list.excerpt.rendered }} />
+          <Link to={`/post/${list.id}`}>See this page</Link>
         </li>
       ));
       return (

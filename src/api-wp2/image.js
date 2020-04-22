@@ -4,7 +4,10 @@ import axios from "axios";
 class Image extends Component {
   constructor(props) {
     super(props);
-    this.state = { imageURL: "" };
+    this.state = {
+      imageURL: "",
+      isLoaded: false,
+    };
   }
   componentDidMount() {
     if (this.props.iamgeId > 0) {
@@ -14,6 +17,7 @@ class Image extends Component {
           const imageURL = res.data.media_details.sizes.thumbnail.source_url;
           this.setState({
             imageURL: imageURL,
+            isLoaded: true,
           });
         })
         .catch((error) => {
@@ -22,11 +26,14 @@ class Image extends Component {
     }
   }
   render() {
-    return (
-      <div>
-        <img src={this.state.imageURL} alt={this.props.iamgeId} />
-      </div>
-    );
+    if (this.state.isLoaded) {
+      return (
+        <div>
+          <img src={this.state.imageURL} alt={this.props.iamgeId} />
+        </div>
+      );
+    }
+    return null;
   }
 }
 
