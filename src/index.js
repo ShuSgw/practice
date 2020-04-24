@@ -23,8 +23,8 @@ import "./css/index.scss";
 // import App from "./review2020_04_02";
 // import App from "./Todo_react_redux";
 // import Index from "./graphQL";
-// import Index from "./hooks";
-import Index from "./api-wp2";
+import Index from "./hooks";
+// import Index from "./api-wp2";
 // import Index from "./api-itunes";
 
 // import MemoApp from "./MemoApp";
