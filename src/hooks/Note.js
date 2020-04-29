@@ -6,18 +6,12 @@ const Note = (props) => {
   //   { title: "title", text: "text" },
   // ];);
 
-  const [notes, setNotes] = useState([]);
+  const localDt = JSON.parse(localStorage.getItem("notes"));
+  const [notes, setNotes] = useState(localDt || []);
   const [text, setText] = useState("");
   const [title, setTitle] = useState("");
-
   useEffect(() => {
-    // localStorage.setItem("notes", ["hello"]);
-    console.log(localStorage.getItem("notes"));
-    // setNotes([...notes]);
-    // console.log("hello world");
-    // localStorage.setItem('myData', data);
-    // localStorage.getItem('myData');
-    // localStorage.removeItem('myData');
+    localStorage.setItem("notes", JSON.stringify(notes));
   });
 
   const addNote = (e) => {
