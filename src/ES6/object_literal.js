@@ -4,13 +4,17 @@ const ObjLiteral = () => {
   useEffect(() => {
     function creteBookShop(inventory) {
       return {
-        inventory: inventory,
-        inventoryValue: function () {
+        // 下はこの省略（オブジェクトリテラル）
+        // inventory: inventory,
+        inventory,
+        // inventoryValue: function ()の省略
+        inventoryValue() {
           return this.inventory.reduce((total, book) => {
             return total + book.price;
           }, 0);
         },
-        inventoryPrice: function (title) {
+        // inventoryPrice: function ()の省略
+        inventoryPrice(title) {
           return this.inventory.find((book) => {
             return book.title === title;
           }).price;
