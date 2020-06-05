@@ -18,7 +18,7 @@ const UseEffect = () => {
   };
   return !loading ? (
     <div>
-      <h1>Loading...{console.log("first")}</h1>
+      <h1>Loading..{console.log("first")}</h1>
     </div>
   ) : (
     <div>

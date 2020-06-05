@@ -26,7 +26,30 @@ class Reduce extends Component {
     };
 
     console.log(balancedParens("()"));
+
+    // question1
+
+    var desks = [
+      { type: "sitting" },
+      { type: "standing" },
+      { type: "sitting" },
+      { type: "sitting" },
+      { type: "standing" },
+    ];
+
+    var deskTypes = desks.reduce(
+      (acc, desk) => {
+        if (desk.type === "sitting") {
+          acc.sitting++;
+        } else if (desk.type === "standing") {
+          acc.standing++;
+        }
+        return acc;
+      },
+      { sitting: 0, standing: 0 }
+    );
   }
+
   render() {
     return <li>Reduce</li>;
   }

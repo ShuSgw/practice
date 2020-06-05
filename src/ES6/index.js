@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 // import SomeAndEvery from "./someandevery";
-// import Reduce from "./reduce";
-import ObjLiteral from "./object_literal";
+import Reduce from "./reduce";
+// import ObjLiteral from "./object_literal";
 
 class Index extends Component {
   render() {
@@ -10,8 +10,8 @@ class Index extends Component {
         <h1>ES6 Practice</h1>
         <ul>
           {/* <SomeAndEvery /> */}
-          {/* <Reduce /> */}
-          <ObjLiteral />
+          <Reduce />
+          {/* <ObjLiteral /> */}
         </ul>
       </div>
     );
