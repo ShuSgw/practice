@@ -28,8 +28,9 @@ import "./css/index.scss";
 // import Index from "./api-itunes";
 
 // import MemoApp from "./MemoApp";
-import Index from "./ES6";
+import DefaultFunc from "./ES6/spread_restArray";
+// import Index from "./ES6";
 
-ReactDOM.render(<Index />, document.getElementById("root"));
+ReactDOM.render(<DefaultFunc />, document.getElementById("root"));
 
 serviceWorker.unregister();
