@@ -1,4 +1,3 @@
-import * as serviceWorker from "./serviceWorker";
 import React from "react";
 import ReactDOM from "react-dom";
 import "normalize.css";
@@ -28,9 +27,8 @@ import "./css/index.scss";
 // import Index from "./api-itunes";
 
 // import MemoApp from "./MemoApp";
-import DefaultFunc from "./ES6/spread_restArray";
+// import Index from "./ES6/spread_restArray";
 // import Index from "./ES6";
+import Index from "./firebase-react-redux";
 
-ReactDOM.render(<DefaultFunc />, document.getElementById("root"));
-
-serviceWorker.unregister();
+ReactDOM.render(<Index />, document.getElementById("root"));
