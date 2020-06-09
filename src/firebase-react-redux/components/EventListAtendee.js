@@ -1,10 +1,14 @@
 import React from "react";
+import { List, Image } from "semantic-ui-react";
 
-const EventListAtendee = (prop) => {
+const EventListAtendee = (props) => {
+  const { attendee } = props;
   return (
-    <div>
-      <div>EventListAtendee</div>
-    </div>
+    <React.Fragment>
+      <List.Item>
+        <Image as="a" size="mini" circular src={attendee.photoURL}></Image>
+      </List.Item>
+    </React.Fragment>
   );
 };
 
