@@ -4,6 +4,7 @@ import { Grid } from "semantic-ui-react";
 
 import EventList from "./EventList";
 import EventForm from "./EventForm";
+import cuid from "cuid";
 
 const eventsFromDashboaed = [
   {
@@ -57,13 +58,22 @@ const eventsFromDashboaed = [
 ];
 
 class EventDashBoard extends React.Component {
-  // constructor(props) {
-  //   super(props);
-  //   this.state = {};
-  // }
   state = {
     events: eventsFromDashboaed,
     isOpen: false,
+  };
+  handleIsOpenToggle = () => {
+    this.setState((prevState) => ({
+      isOpen: !prevState.isOpen,
+    }));
+  };
+  handleCreateEvent = (newEvent) => {
+    newEvent.id = cuid();
+    newEvent.hostPhotoURL = "./firebase_tutorial/assets/images/user.png";
+    this.setState((prevState) => ({
+      events: [...prevState.events, newEvent],
+      isOpen: false,
+    }));
   };
   render() {
     const { events, isOpen } = this.state;
@@ -73,8 +83,17 @@ class EventDashBoard extends React.Component {
           <EventList events={events} />
         </Grid.Column>
         <Grid.Column width={6}>
-          <Button positive content="Create Event" />
-          <EventForm />
+          <Button
+            onClick={this.handleIsOpenToggle}
+            positive
+            content="Create Event"
+          />
+          {isOpen && (
+            <EventForm
+              handleCreateEvent={this.handleCreateEvent}
+              cancelFormOpen={this.handleIsOpenToggle}
+            />
+          )}
         </Grid.Column>
       </Grid>
     );

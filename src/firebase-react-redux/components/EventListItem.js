@@ -11,9 +11,9 @@ const EventListItem = (props) => {
           <Item>
             <Item.Image size="tiny" circular src={event.hostPhotoURL} />
             <Item.Content>
-              <Item.Header as="a">Event Title</Item.Header>
+              <Item.Header>{event.title}</Item.Header>
               <Item.Description>
-                Hosted by <a href="https://shuhei-shagawa.com">hosted by</a>
+                Hosted by hosted by {event.hostedBy}
               </Item.Description>
             </Item.Content>
           </Item>
@@ -27,9 +27,10 @@ const EventListItem = (props) => {
       </Segment>
       <Segment secondary>
         <List horizontal>
-          {event.attendees.map((attendee) => (
-            <EventListAtendee key={attendee.id} attendee={attendee} />
-          ))}
+          {event.attendees &&
+            event.attendees.map((attendee) => (
+              <EventListAtendee key={attendee.id} attendee={attendee} />
+            ))}
         </List>
       </Segment>
       <Segment clearing>
