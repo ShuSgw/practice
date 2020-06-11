@@ -61,10 +61,23 @@ class EventDashBoard extends React.Component {
   state = {
     events: eventsFromDashboaed,
     isOpen: false,
+    selectEvent: false,
   };
-  handleIsOpenToggle = () => {
-    this.setState((prevState) => ({
-      isOpen: !prevState.isOpen,
+  handleSelectEvent = (event) => {
+    this.setState(() => ({
+      selectEvent: event,
+      isOpen: true,
+    }));
+  };
+  handleCreateFormOpen = () => {
+    this.setState(() => ({
+      selectEvent: null,
+      isOpen: true,
+    }));
+  };
+  handleFormCancel = () => {
+    this.setState(() => ({
+      isOpen: false,
     }));
   };
   handleCreateEvent = (newEvent) => {
@@ -72,26 +85,30 @@ class EventDashBoard extends React.Component {
     newEvent.hostPhotoURL = "./firebase_tutorial/assets/images/user.png";
     this.setState((prevState) => ({
       events: [...prevState.events, newEvent],
-      isOpen: false,
+      isOpen: true,
     }));
   };
   render() {
-    const { events, isOpen } = this.state;
+    const { events, isOpen, selectEvent } = this.state;
     return (
       <Grid>
         <Grid.Column width={10}>
-          <EventList events={events} />
+          <EventList
+            events={events}
+            handleSelectEvent={this.handleSelectEvent}
+          />
         </Grid.Column>
         <Grid.Column width={6}>
           <Button
-            onClick={this.handleIsOpenToggle}
+            onClick={this.handleCreateFormOpen}
             positive
             content="Create Event"
           />
           {isOpen && (
             <EventForm
+              selectEvent={selectEvent}
               handleCreateEvent={this.handleCreateEvent}
-              cancelFormOpen={this.handleIsOpenToggle}
+              cancelFormOpen={this.handleFormCancel}
             />
           )}
         </Grid.Column>
@@ -101,3 +118,9 @@ class EventDashBoard extends React.Component {
 }
 
 export default EventDashBoard;
+
+// handleIsOpenToggle = () => {
+//   this.setState((prevState) => ({
+//     isOpen: !prevState.isOpen,
+//   }));
+// };
