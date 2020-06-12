@@ -13,6 +13,12 @@ class EventForm extends React.Component {
     };
   }
 
+  componentDidMount() {
+    if (this.props.selectEvent !== null) {
+      this.setState(() => ({ ...this.props.selectEvent }));
+    }
+  }
+
   handleFormSubmit = (e) => {
     e.preventDefault();
     this.props.handleCreateEvent(this.state);
