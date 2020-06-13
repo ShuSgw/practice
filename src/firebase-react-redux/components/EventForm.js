@@ -21,7 +21,8 @@ class EventForm extends React.Component {
 
   handleFormSubmit = (e) => {
     e.preventDefault();
-    this.props.handleCreateEvent(this.state);
+    // this.props.handleCreateEvent(this.state);
+    this.props.handleUpdateEvent();
   };
   handleInput = (e) => {
     this.setState({
