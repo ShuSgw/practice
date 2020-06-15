@@ -20,6 +20,7 @@ import "./css/index.scss";
 // import App from "./review2020_03_31";
 // import App from "./review2020_03_31";
 // import App from "./review2020_04_02";
+import Index from "./review2020_06_14";
 // import App from "./Todo_react_redux";
 // import Index from "./graphQL";
 // import Index from "./hooks";
@@ -29,6 +30,7 @@ import "./css/index.scss";
 // import MemoApp from "./MemoApp";
 // import Index from "./ES6/spread_restArray";
 // import Index from "./ES6";
-import Index from "./firebase-react-redux";
+
+// import Index from "./firebase-react-redux";
 
 ReactDOM.render(<Index />, document.getElementById("root"));

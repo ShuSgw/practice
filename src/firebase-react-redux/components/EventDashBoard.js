@@ -89,16 +89,24 @@ class EventDashBoard extends React.Component {
     }));
   };
   handleUpdateEvent = (selectEvent) => {
-    this.setState((prev) => ({
-      events: prev.events.map((event) => {
+    this.setState((prevState) => ({
+      events: prevState.events.map((event) => {
         if (event.id === selectEvent.id) {
-          console.log(event);
+          return { ...selectEvent };
         } else {
-          console.log(event);
+          return event;
         }
       }),
+      isOpen: false,
+      selectEvent: null,
     }));
   };
+  handleDeleteEvent = (id) => {
+    this.setState((prevState) => ({
+      events: prevState.events.filter((event) => event.id !== id),
+    }));
+  };
+
   render() {
     const { events, isOpen, selectEvent } = this.state;
     return (
@@ -107,6 +115,7 @@ class EventDashBoard extends React.Component {
           <EventList
             events={events}
             handleSelectEvent={this.handleSelectEvent}
+            handleDeleteEvent={this.handleDeleteEvent}
           />
         </Grid.Column>
         <Grid.Column width={6}>

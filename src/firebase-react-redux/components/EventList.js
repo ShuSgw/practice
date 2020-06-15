@@ -2,7 +2,7 @@ import React, { Fragment } from "react";
 import EventListItem from "./EventListItem";
 
 const EventList = (props) => {
-  const { events, handleSelectEvent } = props;
+  const { events, handleSelectEvent, handleDeleteEvent } = props;
   return (
     <Fragment>
       {events.map((event) => (
@@ -10,6 +10,7 @@ const EventList = (props) => {
           key={event.id}
           event={event}
           handleSelectEvent={handleSelectEvent}
+          handleDeleteEvent={handleDeleteEvent}
         />
       ))}
     </Fragment>

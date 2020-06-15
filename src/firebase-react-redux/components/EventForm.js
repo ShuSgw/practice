@@ -5,6 +5,7 @@ class EventForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      id: "",
       title: "",
       date: "",
       city: "",
@@ -22,7 +23,11 @@ class EventForm extends React.Component {
   handleFormSubmit = (e) => {
     e.preventDefault();
     // this.props.handleCreateEvent(this.state);
-    this.props.handleUpdateEvent();
+    if (this.state.id) {
+      this.props.handleUpdateEvent(this.state);
+    } else {
+      this.props.handleCreateEvent(this.state);
+    }
   };
   handleInput = (e) => {
     this.setState({
