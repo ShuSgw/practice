@@ -2,17 +2,15 @@ import React from "react";
 import ListItem from "./ListItem";
 
 const List = (props) => {
-  const { lists } = props;
+  const { lists, handleListDelete } = props;
   return (
-    <div
-      style={{
-        display: "flex",
-        // justifyContent: "center",
-        flexDirection: "column",
-      }}
-    >
+    <div>
       {lists.map((list) => (
-        <ListItem key={list.id} listArray={list} />
+        <ListItem
+          key={list.id}
+          listArray={list}
+          handleListDelete={handleListDelete}
+        />
       ))}
     </div>
   );
