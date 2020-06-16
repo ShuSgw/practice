@@ -38,7 +38,11 @@ class Index extends React.Component {
       <div>
         <h1 style={{ textAlign: "center" }}>List</h1>
         <Form selectedList={selectedList} handleListAdd={this.handleListAdd} />
-        <List lists={lists} handleListDelete={this.handleListDelete} />
+        <List
+          lists={lists}
+          handleListDelete={this.handleListDelete}
+          handleListEdit={this.handleListEdit}
+        />
       </div>
     );
   }

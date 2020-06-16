@@ -7,11 +7,14 @@ class Form extends React.Component {
       title: "",
     };
   }
-  componentDidMount() {
-    if (this.props.selectList !== null) {
-      this.setState(() => ({ ...this.props.selectList }));
-    }
-  }
+  // componentDidMount() {
+  //   if (this.props.selectedList !== null) {
+  //     this.setState(() => ({ ...this.props.selectedList }));
+  //     console.log(this.props.selectedList);
+  //   } else {
+  //     console.log("hello");
+  //   }
+  // }
   handleInput = (e) => {
     this.setState({
       [e.target.name]: e.target.value,

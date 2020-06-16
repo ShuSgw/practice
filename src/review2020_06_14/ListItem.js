@@ -1,15 +1,21 @@
 import React from "react";
 
 const ListItems = (props) => {
-  const { title, id } = props.listArray;
-  const { handleListDelete } = props;
+  const { listArray } = props;
+  const { handleListDelete, handleListEdit } = props;
   return (
     <div style={{ textAlign: "center" }}>
-      <p>{title}</p>
-      <button>Edit</button>
+      <p>{listArray.title}</p>
       <button
         onClick={() => {
-          handleListDelete(id);
+          handleListEdit(listArray);
+        }}
+      >
+        Edit
+      </button>
+      <button
+        onClick={() => {
+          handleListDelete(listArray.id);
         }}
       >
         Delete
