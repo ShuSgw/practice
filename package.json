@@ -4,7 +4,7 @@
   "private": true,
   "homepage": "./",
   "dependencies": {
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "cuid": "^2.1.8",
     "dotenv": "^8.2.0",
     "enzyme": "^3.10.0",
